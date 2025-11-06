@@ -1,0 +1,274 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+/* --- Navbar --- */
+.navbar {
+    background-color: #fff;
+    border-bottom: 2px solid #000;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #000;
+}
+
+.user-info {
+    font-size: 14px;
+    color: #777;
+}
+
+/* --- Main Content Layout --- */
+.container, .blog-container {
+    padding: 20px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Removed min-height or any height properties */
+}
+
+/* --- Home Page Specifics --- */
+.slider-placeholder {
+    height: 300px;
+    background-color: #ccc;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #555;
+    text-align: center;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.blog-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    background-color: #ccc;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-content h4 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #666;
+    flex-grow: 1;
+}
+
+.read-more-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    width: fit-content;
+    margin-top: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.read-more-btn:hover {
+    background-color: #333;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #999;
+    margin-top: 10px;
+}
+
+.add-blog-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    float: right;
+    margin-right: 5%;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.add-blog-btn:hover {
+    background-color: #333;
+}
+
+.add-blog-btn i {
+    margin-right: 8px;
+}
+
+/* --- Blogs Page Specifics --- */
+.page-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.blog-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start; /* Important: this aligns items to the top */
+}
+
+.main-blog-content {
+    flex: 3;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* No fixed height or min-height */
+}
+
+.main-blog-image {
+    width: 100%;
+    height: 400px;
+    background-color: #6a9b4a;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.blog-title {
+    font-size: 28px;
+    margin-top: 0;
+}
+
+.blog-text {
+    line-height: 1.6;
+    color: #444;
+}
+
+.sidebar-blogs {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- Footer --- */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #e2e4e7;
+    border-top: 1px solid #ddd;
+    margin-top: 50px;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .blog-layout {
+        flex-direction: column;
+    }
+
+    .sidebar-blogs {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+
+    .sidebar-blogs .blog-card {
+        min-width: 250px;
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo-container {
+        margin-bottom: 10px;
+    }
+
+    .nav-links a {
+        margin: 0 10px;
+    }
+
+    .user-info {
+        margin-top: 10px;
+    }
+
+    .add-blog-btn {
+        width: 100%;
+        float: none;
+        margin-right: 0;
+    }
+}
+/* Styling for the new image tag in the cards */
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This makes the image cover the entire space without distortion */
+}

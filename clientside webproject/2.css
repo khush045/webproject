@@ -1,0 +1,216 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+.navbar {
+    background-color: #fff;
+    border-bottom: 2px solid #000;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-container {
+    /* Keep it horizontal instead of column */
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #000;
+}
+
+.user-info {
+    font-size: 14px;
+    color: #777;
+    text-align: right;
+    margin-left: 20px;
+}
+
+/* Make links and user-info a single flex container on the right */
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+.user-info {
+    font-size: 14px;
+    color: #777;
+    text-align: right;
+    margin-left: 20px;
+}
+
+/* --- Main Content Layout --- */
+.container {
+    padding: 20px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Fixed size for carousel images */
+.carousel-img {
+    height: 400px; 
+    object-fit: cover; 
+}
+
+/* --- Blog Cards --- */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.blog-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Fixed size for card images */
+.card-image-wrapper {
+    width: 100%;
+    height: 200px; 
+    overflow: hidden;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.card-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-content h4 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #666;
+    flex-grow: 1;
+}
+
+.read-more-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    width: fit-content;
+    margin-top: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.read-more-btn:hover {
+    background-color: #333;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #999;
+    margin-top: 10px;
+}
+
+.add-blog-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    float: right;
+    margin-right: 5%;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.add-blog-btn:hover {
+    background-color: #333;
+}
+
+.add-blog-btn i {
+    margin-right: 8px;
+}
+
+/* --- Footer --- */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #e2e4e7;
+    border-top: 1px solid #ddd;
+    margin-top: 50px;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .navbar-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo-container {
+        margin-bottom: 10px;
+    }
+
+    .nav-links a {
+        margin: 0 10px;
+    }
+
+    .add-blog-btn {
+        width: 100%;
+        float: none;
+        margin-right: 0;
+    }
+}

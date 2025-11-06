@@ -1,0 +1,650 @@
+/* ===================================================================
+   UNIVERSAL STYLES (Used on all pages)
+   =================================================================== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    padding: 20px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Universal Navbar --- */
+.navbar {
+    background-color: #fff;
+    border-bottom: 2px solid #000;
+}
+
+.navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000; /* Black color for logo */
+}
+
+/* Simple logo container for login/blog page */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    margin-left: 20px; /* Kept for login/blog nav */
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #000;
+}
+
+/* --- Universal Footer --- */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #e2e4e7;
+    border-top: 1px solid #ddd;
+    margin-top: 50px;
+}
+
+/* ===================================================================
+   HOME PAGE (home.html)
+   =================================================================== */
+
+/* --- Home Page Navbar (More complex) --- */
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 15px;
+    background-color: #f8f8f8;
+    width: 250px;
+}
+
+.search-container input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    width: 100%;
+}
+
+.search-container i {
+    color: #888;
+    margin-right: 8px;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links a.dropdown-link {
+    position: relative;
+}
+
+.nav-links a.dropdown-link::after {
+    content: '▼';
+    font-size: 10px;
+    margin-left: 5px;
+    color: #888;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-actions i {
+    font-size: 20px;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.user-actions i:hover {
+    color: #000;
+}
+
+.sign-in-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.sign-in-btn:hover {
+    background-color: #333;
+}
+
+
+.blog-grid {
+    display: grid;
+    /* This forces 3 equal-width columns */
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.blog-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-image-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-content h4 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #666;
+    flex-grow: 1;
+}
+
+.read-more-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    width: fit-content;
+    margin-top: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.read-more-btn:hover {
+    background-color: #333;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #999;
+    margin-top: 10px;
+}
+
+.add-blog-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    float: right;
+    margin-right: 5%;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.add-blog-btn:hover {
+    background-color: #333;
+}
+
+.add-blog-btn i {
+    margin-right: 8px;
+}
+
+#no-results {
+    display: none; /* Hidden by default */
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #777;
+    margin: 50px 0;
+}
+
+/* ===================================================================
+   LOGIN PAGE (login.html)
+   =================================================================== */
+
+/* --- Form Styles --- */
+.form-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 20px;
+}
+
+.form-card {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.form-card h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 28px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #333;
+}
+
+.form-text {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.form-text a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.form-text a:hover {
+    text-decoration: underline;
+}
+
+/* --- Validation Error Styles --- */
+.error-text {
+    color: #D8000C; /* Red color for errors */
+    font-size: 13px;
+    font-weight: bold;
+    display: block; /* Makes it appear on its own line */
+    margin-top: 5px;
+    /* Reserve space so layout doesn't jump */
+    min-height: 15px;
+}
+
+.input-group input.error {
+    border-color: #D8000C; /* Red border for invalid input */
+    background-color: #FFF3F3; /* Light red background */
+}
+
+/* ===================================================================
+   BLOG POST PAGE (blogpage 1.html)
+   =================================================================== */
+.blog-post-hero-image {
+    width: 100%;
+    height: 400px;
+    background-color: #cccccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Added to contain hero image */
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-placeholder {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.post-and-sidebar-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.main-blog-post {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.post-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.post-text {
+    line-height: 1.6;
+    font-size: 16px;
+    color: #555;
+}
+
+.related-posts-sidebar {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: fit-content;
+}
+
+.sidebar-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.related-post-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.related-post-card:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.related-img-wrapper {
+    width: 100px;
+    height: 70px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.related-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.related-content {
+    flex-grow: 1;
+}
+
+.related-content h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 5px;
+}
+
+.read-more-link {
+    font-size: 14px;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.read-more-link:hover {
+    text-decoration: underline;
+}
+
+/* ===================================================================
+   RESPONSIVE DESIGN
+   =================================================================== */
+@media (max-width: 768px) {
+    /* --- Navbar (All Pages) --- */
+    .navbar-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo-container {
+        margin-bottom: 10px;
+    }
+
+    .nav-links a {
+        margin: 0 10px;
+    }
+
+    /* --- Navbar (Home Page Specific) --- */
+    .navbar-left, .navbar-right {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .search-container {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .user-actions {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .user-actions i, .sign-in-btn {
+        margin: 5px 10px 5px 0;
+    }
+
+    /* --- Blog Post Page --- */
+    .post-and-sidebar-layout {
+        grid-template-columns: 1fr;
+    }
+}
+/* ===================================================================
+   DASHBOARD PAGE (dashboard.html)
+   =================================================================== */
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows button to wrap on small screens */
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.dashboard-header h2 {
+    margin: 0;
+    font-size: 32px;
+}
+
+/* Repositions the "Add Blog" button from home.html */
+.dashboard-header .add-blog-btn {
+    float: none;
+    margin: 0;
+}
+
+.dashboard-welcome {
+    font-size: 20px;
+    color: #555;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+.dashboard-post-list {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.dashboard-post-list h4 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Makes table scrollable on small screens */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.post-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px; /* Ensures table is wide enough to need scroll */
+}
+
+.post-table th,
+.post-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.post-table th {
+    background-color: #f8f8f8;
+    font-weight: bold;
+    color: #333;
+}
+
+.post-table tbody tr:hover {
+    background-color: #fdfdfd;
+}
+
+.action-buttons a {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 5px;
+    transition: opacity 0.3s;
+}
+
+.action-buttons a:hover {
+    opacity: 0.8;
+}
+
+.action-buttons .btn-edit {
+    background-color: #007bff; /* Blue */
+}
+
+.action-buttons .btn-delete {
+    background-color: #D8000C; /* Red */
+}
+
+.action-buttons a i {
+    margin-right: 5px;
+}
+
+/* Responsive adjustment for dashboard header */
+@media (max-width: 500px) {
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}

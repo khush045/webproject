@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - OpenScrole</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+
+        /* --- Navbar --- */
+        .navbar {
+            background-color: #fff;
+            border-bottom: 2px solid #000;
+        }
+
+        /* --- Error Styles (Added) --- */
+        .error-text {
+            color: #D8000C; /* Red color for errors */
+            font-size: 13px;
+            font-weight: bold;
+            display: block; /* Makes it appear on its own line */
+            margin-top: 5px;
+            /* Reserve space so layout doesn't jump */
+            min-height: 15px; 
+            text-align: left; /* Ensure text is left-aligned */
+        }
+        
+        /* Specific tweaks for password criteria list */
+        .error-text.password-criteria {
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        .error-text.password-criteria.valid {
+            color: #008000; /* Green for valid criteria */
+            text-decoration: line-through;
+        }
+        .error-text.password-criteria.invalid {
+            color: #D8000C; /* Red for invalid criteria */
+        }
+
+
+        .input-group input.error {
+            border-color: #D8000C; /* Red border for invalid input */
+            background-color: #FFF3F3; /* Light red background */
+        } 
+        /* --- End Error Styles --- */
+
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            margin-left: 20px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #000;
+        }
+
+        /* --- Form Styles --- */
+        .form-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+            padding: 20px;
+        }
+
+        .form-card {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .form-card h2 {
+            margin-top: 0;
+            margin-bottom: 25px;
+            color: #333;
+            font-size: 28px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #333;
+        }
+
+        .form-text {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .form-text a {
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .form-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #e2e4e7;
+            border-top: 1px solid #ddd;
+            margin-top: 50px;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .navbar-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .logo-container {
+                margin-bottom: 10px;
+            }
+
+            .nav-links a {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="navbar-content">
+            <div class="logo-container">
+                <span class="logo">OpenScrole</span>
+            </div>
+            <nav class="nav-links">
+                <a href="home.html">HOME</a>
+                <a href="about.html">ABOUT</a>
+                <a href="login.html">LOGIN</a>
+            
+            </nav>
+        </div>
+    </header>
+
+    <main class="form-page">
+        <div class="form-card">
+            <h2>Create Your Account</h2>
+            <!-- Updated form tag with ID and removed onsubmit -->
+            <form action="#" method="post" id="signup-form">
+                <div class="input-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name">
+                    <!-- Added error message container -->
+                    <small class="error-text" id="name-error"></small>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email">
+                    <!-- Added error message container -->
+                    <small class="error-text" id="email-error"></small>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                    <!-- Added error message container -->
+                    <div id="password-error">
+                        <!-- We will dynamically add criteria here -->
+                        <div class="error-text password-criteria invalid" id="pass-len">At least 8 characters</div>
+                        <div class="error-text password-criteria invalid" id="pass-upper">1 Uppercase letter (A-Z)</div>
+                        <div class="error-text password-criteria invalid" id="pass-lower">1 Lowercase letter (a-z)</div>
+                        <div class="error-text password-criteria invalid" id="pass-num">1 Number (0-9)</div>
+                        <div class="error-text password-criteria invalid" id="pass-spec">1 Special character (!@#$)</div>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Sign Up</button>
+            </form>
+            <p class="form-text">Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </main>
+
+    <footer class="footer">
+ &copy; 2025 OpenScrole. All Rights Reserved.
+    </footer>
+
+    <!-- Added Validation Script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // --- Get all the elements we need ---
+        const form = document.getElementById('signup-form');
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const password = document.getElementById('password');
+
+        // Get the <small> tags for error messages
+        const nameError = document.getElementById('name-error');
+        const emailError = document.getElementById('email-error');
+        // Get password criteria elements
+        const passCriteria = {
+            len: document.getElementById('pass-len'),
+            upper: document.getElementById('pass-upper'),
+            lower: document.getElementById('pass-lower'),
+            num: document.getElementById('pass-num'),
+            spec: document.getElementById('pass-spec')
+        };
+
+        // --- Function to show a simple error ---
+        function showError(inputEl, errorEl, message) {
+            errorEl.textContent = message;
+            inputEl.classList.add('error');
+        }
+
+        // --- Function to clear a simple error ---
+        function clearError(inputEl, errorEl) {
+            errorEl.textContent = '';
+            inputEl.classList.remove('error');
+        }
+        
+        // --- Function to update password criteria ---
+        function updateCriteria(element, isValid) {
+            if (isValid) {
+                element.classList.remove('invalid');
+                element.classList.add('valid');
+            } else {
+                element.classList.remove('valid');
+                element.classList.add('invalid');
+            }
+        }
+
+        // --- Validation functions ---
+        
+        function validateName() {
+            if (name.value.trim() === '') {
+                showError(name, nameError, 'Full Name is required.');
+                return false;
+            }
+            clearError(name, nameError);
+            return true;
+        }
+
+        function validateEmail() {
+            const emailValue = email.value.trim();
+
+            if (emailValue === '') {
+                showError(email, emailError, 'Email Address is required.');
+                return false;
+            }
+            
+            // Instant feedback logic as requested
+            if (emailValue.indexOf('@') === -1) {
+                showError(email, emailError, 'Email is missing an "@".');
+                return false;
+            }
+            
+            const parts = emailValue.split('@');
+            if (parts.length !== 2 || parts[1] === '') {
+                showError(email, emailError, 'Email must have a domain (e.g., gmail.com).');
+                return false;
+            }
+            
+            const domain = parts[1];
+            if (domain.indexOf('.') === -1) {
+                 showError(email, emailError, 'Domain is missing a "." (e.g., .com, .in).');
+                return false;
+            }
+
+            if (domain.startsWith('.') || domain.endsWith('.')) {
+                showError(email, emailError, 'Invalid domain format.');
+                return false;
+            }
+
+            // If all checks pass, clear the error
+            clearError(email, emailError);
+            return true;
+        }
+
+        function validatePassword() {
+            const passValue = password.value;
+            let allValid = true;
+
+            // Check length (I added 8 chars as a good default)
+            const hasLength = passValue.length >= 8;
+            updateCriteria(passCriteria.len, hasLength);
+            if (!hasLength) allValid = false;
+
+            // Check for uppercase
+            const hasUpper = /[A-Z]/.test(passValue);
+            updateCriteria(passCriteria.upper, hasUpper);
+            if (!hasUpper) allValid = false;
+
+            // Check for lowercase
+            const hasLower = /[a-z]/.test(passValue);
+            updateCriteria(passCriteria.lower, hasLower);
+            if (!hasLower) allValid = false;
+
+            // Check for number
+            const hasNumber = /[0-9]/.test(passValue);
+            updateCriteria(passCriteria.num, hasNumber);
+            if (!hasNumber) allValid = false;
+
+            // Check for special character
+            const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(passValue);
+            updateCriteria(passCriteria.spec, hasSpecial);
+            if (!hasSpecial) allValid = false;
+            
+            // Update border
+            if (allValid && passValue.length > 0) {
+                password.classList.remove('error');
+            } else if (passValue.length > 0) {
+                 password.classList.add('error');
+            } else {
+                 password.classList.remove('error'); // No border if empty
+            }
+
+            return allValid;
+        }
+
+        // --- Add Event Listeners for real-time validation ---
+        name.addEventListener('blur', validateName);
+        email.addEventListener('input', validateEmail);
+        password.addEventListener('input', validatePassword);
+        
+        // --- Add Event Listener for form submission ---
+        form.addEventListener('submit', function (event) {
+            // Run all validations one last time
+            const isNameValid = validateName();
+            const isEmailValid = validateEmail();
+            const isPasswordValid = validatePassword();
+
+            // If any one is NOT valid, stop the form from submitting
+            if (!isNameValid || !isEmailValid || !isPasswordValid) {
+                event.preventDefault(); 
+            }
+        });
+
+    });
+    </script>
+
+</body>
+</html>

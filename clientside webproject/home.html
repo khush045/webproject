@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenScrole - Your Page, Your Story</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    
+
+    <header class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-left">
+                <span class="logo">OpenScrole</span>
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <!-- Added ID to the input -->
+                    <input type="text" id="searchInput" placeholder="Search...">
+                </div>
+            </div>
+            <div class="navbar-right">
+                <nav class="nav-links">
+                    <a href="#" >Home</a>
+                      <a href="about.html">About</a>
+                    <a href="dashboard.html" >Dashboard</a>
+                    <a href="signup.html" >Signup </a>
+                   
+                </nav>
+                <div class="user-actions">
+                    <i class="far fa-bell"></i>
+                  
+                    <a href="login.html" class="sign-in-btn">Sign In</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Added ID to the grid -->
+        <section class="blog-grid mt-5" id="blogGrid">
+            <div class="blog-card">
+                <div class="card-image-wrapper">
+                    <img src="ai image.webp"class="card-img" alt="How AI is Changing the World">
+                </div>
+                <div class="card-content">
+                    <h4>How AI is Changing the World</h4>
+                    <p>AI is revolutionizing industries and shaping the future of work and life...</p>
+                    <a href="blogpage 1.html" class="read-more-btn">Read More</a>
+                    <div class="card-meta">
+                        <span class="username">username</span>
+                        <span class="time">1 hour</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <div class="card-image-wrapper">
+                    <img src="the-future-of-remote-work.jpg" class="card-img" alt="The Future of Work is Remote">
+                </div>
+                <div class="card-content">
+                    <h4>The Future of Work is Remote</h4>
+                    <p>Working from home is not just a temporary trend but a new paradigm...</p>
+                    <a href="remote work.html" class="read-more-btn">Read More</a>
+                    <div class="card-meta">
+                        <span class="username">username</span>
+                        <span class="time">1 month</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <div class="card-image-wrapper">
+                    <img src="programing lang.webp" class="card-img" alt="Top 5 Programming Languages">
+                </div>
+                <div class="card-content">
+                    <h4>Top 5 Programming Languages to Learn</h4>
+                    <p>Whether you're a beginner or an expert, these languages are in high demand...</p>
+                    <a href="top 5 programing lang.html" class="read-more-btn">Read More</a>
+                    <div class="card-meta">
+                        <span class="username">username</span>
+                        <span class="time">2 hours</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <div class="card-image-wrapper">
+                    <img src="crypto guide.png" class="card-img" alt="Investing in Cryptocurrency">
+                </div>
+                <div class="card-content">
+                    <h4>Investing in Cryptocurrency: A Beginner's Guide</h4>
+                    <p>Navigate the volatile world of crypto with this simple guide...</p>
+                    <a href="crypto blog.html" class="read-more-btn">Read More</a>
+                    <div class="card-meta">
+                        <span class="username">username</span>
+                        <span class="time">1 week</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <div class="card-image-wrapper">
+                    <img src="EAT_HEALTHY_FOOD.jpg" class="card-img" alt="Healthy Eating Habits">
+                </div>
+                <div class="card-content">
+                    <h4>Healthy Eating Habits for a Busy Lifestyle</h4>
+                    <p>Learn how to maintain a balanced diet even with a packed schedule...</p>
+                    <a href="healthy eating.html" class="read-more-btn">Read More</a>
+                    <div class="card-meta">
+                        <span class="username">username</span>
+                        <span class="time">22 days</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <div class="card-image-wrapper">
+                    <img src="public-speaker-concept-free-vector.jpg" class="card-img" alt="Mastering Public Speaking">
+                </div>
+                <div class="card-content">
+                    <h4>Mastering Public Speaking</h4>
+                    <p>Overcome your fear and become a confident, effective public speaker...</p>
+                    <a href="public speaking.html" class="read-more-btn">Read More</a>
+                    <div class="card-meta">
+                        <span class="username">username</span>
+                        <span class="time">2 days</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Added "no results" message -->
+        <div id="no-results">
+            <p>No blogs found matching your search.</p>
+        </div>
+        
+        <button class="add-blog-btn"><i class="fas fa-plus"></i><a style="text-decoration: none; color: white;"
+            href="addblog.html"> ADD BLOG</button></a>
+
+    </main>
+    
+    <footer class="footer">
+        &copy; 2025 OpenScrole. All Rights Reserved.
+        </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Added Search Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const blogGrid = document.getElementById('blogGrid');
+            const blogCards = blogGrid.getElementsByClassName('blog-card');
+            const noResults = document.getElementById('no-results');
+
+            // Add event listener for 'input' to search as user types
+            searchInput.addEventListener('input', function() {
+                const query = searchInput.value.toLowerCase().trim();
+                let resultsFound = 0;
+
+                // Loop through all blog cards
+                for (let i = 0; i < blogCards.length; i++) {
+                    const card = blogCards[i];
+                    // Find the title (h4) within the card
+                    const titleElement = card.querySelector('.card-content h4');
+                    
+                    if (titleElement) {
+                        const title = titleElement.textContent.toLowerCase();
+                        
+                        // Check if the title includes the search query
+                        if (title.includes(query)) {
+                            card.style.display = ""; // Show the card
+                            resultsFound++;
+                        } else {
+                            card.style.display = "none"; // Hide the card
+                        }
+                    }
+                }
+
+                // Show or hide the "No results" message
+                if (resultsFound === 0) {
+                    noResults.style.display = "block";
+                } else {
+                    noResults.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
