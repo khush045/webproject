@@ -214,77 +214,67 @@
      &copy; 2025 OpenScrole. All Rights Reserved.
     </footer>
 
-    <script>
-        // Wait for the HTML document to be fully loaded
-    document.addEventListener('DOMContentLoaded', function () {
-    
-        // --- Get all the elements we need ---
-        const form = document.getElementById('login-form');
-        const email = document.getElementById('email');
-        const password = document.getElementById('password');
-    
-        // Get the <small> tags for error messages
-        const emailError = document.getElementById('email-error');
-        const passwordError = document.getElementById('password-error');
-    
-        // --- Function to show an error ---
-        function showError(inputEl, errorEl, message) {
-            errorEl.textContent = message;
-            inputEl.classList.add('error'); // Adds red border
+      <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('login-form');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    const emailError = document.getElementById('email-error');
+    const passwordError = document.getElementById('password-error');
+
+    const STATIC_PASSWORD = "admin123"; // 🔐 Your static password
+
+    function showError(inputEl, errorEl, message) {
+        errorEl.textContent = message;
+        inputEl.classList.add('error');
+    }
+
+    function clearError(inputEl, errorEl) {
+        errorEl.textContent = '';
+        inputEl.classList.remove('error');
+    }
+
+    function validateEmail() {
+        if (email.value.trim() === '') {
+            showError(email, emailError, 'Email Address is required.');
+            return false;
         }
-    
-        // --- Function to clear an error ---
-        function clearError(inputEl, errorEl) {
-            errorEl.textContent = '';
-            inputEl.classList.remove('error'); // Removes red border
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!re.test(String(email.value).toLowerCase())) {
+            showError(email, emailError, 'Please enter a valid email format.');
+            return false;
         }
-    
-        // --- Validation functions ---
-        function validateEmail() {
-            if (email.value.trim() === '') {
-                showError(email, emailError, 'Email Address is required.');
-                return false;
-            }
-            // Simple check for email format
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!re.test(String(email.value).toLowerCase())) {
-                showError(email, emailError, 'Please enter a valid email format.');
-                return false;
-            }
-            // If all checks pass, clear the error
-            clearError(email, emailError);
-            return true;
+        clearError(email, emailError);
+        return true;
+    }
+
+    function validatePassword() {
+        if (password.value.trim() === '') {
+            showError(password, passwordError, 'Password is required.');
+            return false;
         }
-    
-        function validatePassword() {
-            if (password.value.trim() === '') {
-                showError(password, passwordError, 'Password is required.');
-                return false;
-            }
-            // If check passes, clear the error
-            clearError(password, passwordError);
-            return true;
+        clearError(password, passwordError);
+        return true;
+    }
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const isEmailValid = validateEmail();
+        const isPasswordValid = validatePassword();
+
+        if (!isEmailValid || !isPasswordValid) return;
+
+        // --- Static password check ---
+        if (password.value === STATIC_PASSWORD) {
+            alert("✅ Login successful!");
+            window.location.href = "home.html"; // Redirect to home page
+        } else {
+            showError(password, passwordError, 'Incorrect password.');
         }
-    
-        // --- Add Event Listeners for real-time validation ---
-        // 'blur' fires when the user clicks away from the input
-        email.addEventListener('blur', validateEmail);
-        password.addEventListener('blur', validatePassword);
-        
-        // --- Add Event Listener for form submission ---
-        form.addEventListener('submit', function (event) {
-            // Run all validations one last time before submitting
-            const isEmailValid = validateEmail();
-            const isPasswordValid = validatePassword();
-    
-            // If either one is NOT valid, stop the form from submitting
-            if (!isEmailValid || !isPasswordValid) {
-                // Prevent the form from sending data to the server
-                event.preventDefault(); 
-            }
-        });
-    
     });
-    </script>
+});
+</script>
+
 </body>
 </html>
